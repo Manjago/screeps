@@ -17,8 +17,10 @@ module.exports.loop = function () {
     }
 
     for(var name in Game.rooms) {
-        for(var source in Game.rooms[name].find(FIND_SOURCES)) {
-            logicSpawn.run(source)
+        var sources = Game.rooms[name].find(FIND_SOURCES);
+        for(var index in sources) {
+            console.log("find source " + sources[index]);
+            logicSpawn.run(sources[index])
         }
     }
     

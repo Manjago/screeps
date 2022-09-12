@@ -3,15 +3,18 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-		const source = Game.getObjectById(creep.memory.sourceId);
+		var source = Game.getObjectById(creep.memory.sourceId);
 
-	    if(creep.store.getFreeCapacity() > 0) {
-            var sources = creep.room.find(FIND_SOURCES);
+	    if(creep.store.getFreeCapacity() > 0) {            
             if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.say('hm');
                 creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
+            } else {
+                creep.say('hm-');
             }
         }
         else {
+            creep.say('h-');
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
