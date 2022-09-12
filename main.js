@@ -16,8 +16,8 @@ module.exports.loop = function () {
         }
     }
 
-    for(var room in Game.rooms) {
-        for(var source in room.sources) {
+    for(var name in Game.rooms) {
+        for(var source in Game.rooms[name].find(FIND_SOURCES)) {
             logicSpawn.run(source)
         }
     }
