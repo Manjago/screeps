@@ -9,6 +9,7 @@ var roleHarvester = {
             }
         }
         else {
+            console.log("111");
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
