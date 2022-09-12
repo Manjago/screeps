@@ -7,16 +7,16 @@ var roleUpgrader = {
 
 	    if(creep.store[RESOURCE_ENERGY] == 0) {
             if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.say("u->" + source.id);
                 creep.moveTo(source);
-                creep.say("mo " + source.id);
             } else {
-                creep.say("load");
+                creep.say("u-load");
             }
         }
         else {
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+                creep.say("u-upg");
                 creep.moveTo(creep.room.controller);
-                creep.say("find");
             }
         }
 	}

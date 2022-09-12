@@ -7,14 +7,14 @@ var roleHarvester = {
 
 	    if(creep.store.getFreeCapacity() > 0) {            
             if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                creep.say('hm');
+                creep.say('h-find');
                 creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
             } else {
-                creep.say('hm-');
+                creep.say('h-load');
             }
         }
         else {
-            creep.say('h-');
+            creep.say('h-charge');
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||

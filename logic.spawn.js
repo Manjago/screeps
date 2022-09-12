@@ -4,13 +4,12 @@ var logicSpawn = {
     run: function (source) {
 
         if (Game.spawns['Spawn1'].spawning) {
-            console.log('already spawning');
             return;
         }
 
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.memory.sourceId == source.id);
 
-        if (harvesters.length < 1) {
+        if (harvesters.length < 0) {
             var newName = 'Harvester' + Game.time;
             console.log('Spawning new harvester: ' + newName + ' for source ' + source.id);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
@@ -19,7 +18,7 @@ var logicSpawn = {
 
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.memory.sourceId == source.id);
 
-        if (upgraders.length < 3) {
+        if (upgraders.length < 6) {
             var newName = 'Upgrader' + Game.time;
             console.log('Spawning new upgrader: ' + newName + ' for source ' + source.id);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
