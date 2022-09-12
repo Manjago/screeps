@@ -2,14 +2,13 @@ var roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+
+		const source = Game.getObjectById(creep.memory.sourceId);
+
 	    if(creep.store[RESOURCE_ENERGY] == 0) {
-            var sources = creep.room.find(FIND_SOURCES);
-            console.log("!1");
-         //   console.log("tsource (" + creep.memory.tsource+ ")");
-            console.log("!2");
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0]);
-                creep.say("mo " + sources[0].id);
+            if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(source);
+                creep.say("mo " + source.id);
             } else {
                 creep.say("load");
             }

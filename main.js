@@ -16,7 +16,12 @@ module.exports.loop = function () {
         }
     }
 
-    logicSpawn.run()
+    for(var room in Game.rooms) {
+        for(var source in room.sources) {
+            logicSpawn.run(source)
+        }
+    }
+    
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
