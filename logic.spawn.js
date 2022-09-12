@@ -8,7 +8,7 @@ var logicSpawn = {
             return;
         }
 
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.memory.sourceId == source.id);
 
         if (harvesters.length < 1) {
             var newName = 'Harvester' + Game.time;
@@ -17,16 +17,16 @@ var logicSpawn = {
                 { memory: { role: 'harvester', sourceId: source.id } });
         }
 
-        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.memory.sourceId == source.id);
 
-        if (upgraders.length < 0) {
+        if (upgraders.length < 3) {
             var newName = 'Upgrader' + Game.time;
             console.log('Spawning new upgrader: ' + newName + ' for source ' + source.id);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
                 { memory: { role: 'upgrader', sourceId: source.id } });
         }
 
-        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.memory.sourceId == source.id);
 
         if (builders.length < 0) {
             var newName = 'Builder' + Game.time;
