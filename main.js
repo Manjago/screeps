@@ -6,20 +6,20 @@ var logicSpawn = require('logic.spawn');
 module.exports.loop = function () {
 
     for(var name in Game.rooms) {
-        console.log('Room "'+name+'" has '+Game.rooms[name].energyAvailable+' energy');
+    //    console.log('Room "'+name+'" has '+Game.rooms[name].energyAvailable+' energy');
     }
 
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
             delete Memory.creeps[name];
-            console.log('Clearing non-existing creep memory:', name);
+      //      console.log('Clearing non-existing creep memory:', name);
         }
     }
 
     for(var name in Game.rooms) {
         var sources = Game.rooms[name].find(FIND_SOURCES);
         for(var index in sources) {
-            console.log("find source " + sources[index]);
+        //    console.log("find source " + sources[index]);
             logicSpawn.run(sources[index])
         }
     }

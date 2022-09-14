@@ -11,7 +11,7 @@ var logicSpawn = {
 
         if (harvesters.length < 0) {
             var newName = 'Harvester' + Game.time;
-            console.log('Spawning new harvester: ' + newName + ' for source ' + source.id);
+            //console.log('Spawning new harvester: ' + newName + ' for source ' + source.id);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
                 { memory: { role: 'harvester', sourceId: source.id } });
         }
@@ -20,7 +20,7 @@ var logicSpawn = {
 
         if (upgraders.length < 6) {
             var newName = 'Upgrader' + Game.time;
-            console.log('Spawning new upgrader: ' + newName + ' for source ' + source.id);
+            //console.log('Spawning new upgrader: ' + newName + ' for source ' + source.id);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
                 { memory: { role: 'upgrader', sourceId: source.id } });
         }
@@ -29,7 +29,7 @@ var logicSpawn = {
 
         if (builders.length < 0) {
             var newName = 'Builder' + Game.time;
-            console.log('Spawning new builder: ' + newName + ' for source ' + source.id);
+            //console.log('Spawning new builder: ' + newName + ' for source ' + source.id);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
                 { memory: { role: 'builder', sourceId: source.id } });
         }
